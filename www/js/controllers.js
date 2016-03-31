@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
 
-  var secret;
+  var secret = [];
 
   function createSecret() {
     while (secret.length < 4) {
