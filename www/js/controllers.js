@@ -13,11 +13,11 @@ angular.module('starter.controllers', [])
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
 
-  var secret = [];
+  var $scope.secret = [];
 
   function createSecret() {
-    while (secret.length < 4) {
-     secret.push(Math.floor(Math.random() * $scope.icons.length));
+    while ($scope.secret.length < 4) {
+     $scope.secret.push(Math.floor(Math.random() * $scope.icons.length));
     }
     console.log(secret);
   }
@@ -40,6 +40,18 @@ angular.module('starter.controllers', [])
         just use a small button with text of 'Score'?
   */
   $scope.scoreTurn = function() {
+    for ( var i = 0; i <= 3; i++) {
+      if ($scope.secret[i] === $scope.turn.position[i]) {
+        turn.numPerfect.push(true);
+      } else {
+        if (($scope.secret[i] === $scope.turn.position[0]) ||
+           ($scope.secret[i] === $scope.turn.position[1]) ||
+           ($scope.secret[i] === $scope.turn.position[2]) ||
+           ($scope.secret[i] === $scope.turn.position[3])) {
+          turn.numAlmost.push(true);
+        }
+      }
+    }
     // TODO: Score the turn
 
     // TODO: Show winModal IF turn is correct. Put line below in an if statement.
