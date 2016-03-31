@@ -5,6 +5,7 @@ angular.module('starter.controllers', [])
   // These icon classes are for mapping the selected guesses to the UI
   $scope.icons = ['ion-social-apple', 'ion-social-android','ion-social-angular','ion-social-html5'];
 
+
   // The current selected icon to assign to any clicked position.
   // TODO: Needs to be set when buttons in menu.html are clicked.
   $scope.selectedIcon = 0;
@@ -12,8 +13,19 @@ angular.module('starter.controllers', [])
   // TODO: You're going to need a data structure to hold a list of "turns";
   // and those "turns" are likely going to be objects...
 
+  var secret;
+
+  function createSecret() {
+    while (secret.length < 4) {
+     secret.push(Math.floor(Math.random() * $scope.icons.length));
+    }
+    console.log(secret);
+  }
+
   // Initialize game state
   $scope.newGame = function() {
+    var secret = [];
+    createSecret();
     // TODO: Set all data properties/structures to their beginning state
 
   };
